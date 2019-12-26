@@ -38,28 +38,30 @@ class Interval {
 }
 
 public class App {
-	 public static void main(String[] args) {
-		 List<Interval> meetings = new ArrayList<Interval>();
-		 meetings.add(new Interval(0, 30));
-		 meetings.add(new Interval(5, 10));
-		 meetings.add(new Interval(15, 20));
-		 System.out.println(minMeetingRooms(meetings));
-	 }
+     public static void main(String[] args) {
+	  List<Interval> meetings = new ArrayList<Interval>();
+	  meetings.add(new Interval(0, 30));
+	  meetings.add(new Interval(5, 10));
+	  meetings.add(new Interval(15, 20));
+	  System.out.println(minMeetingRooms(meetings));
+     }
 
-	 public static int minMeetingRooms(List<Interval> intervals) {
-        if(intervals == null || intervals.size() == 0){
+     public static int minMeetingRooms(List<Interval> intervals) {
+          if(intervals == null || intervals.size() == 0){
             return 0;
-        }
-        Collections.sort(intervals, (a, b) -> a.start - b.start);
-        PriorityQueue<Integer> minHeap = new PriorityQueue<Integer>();
-        for(Interval meeting : intervals){
-            if(!minHeap.isEmpty() && minHeap.peek() <= meeting.start){
-                minHeap.poll();
-            }
-            minHeap.add(meeting.end);
-        }
-     return minHeap.size();
-   }
+          }
+	  Collections.sort(intervals, (a, b) -> a.start - b.start);
+	  PriorityQueue<Integer> minHeap = new PriorityQueue<Integer>();
+		
+	  for(Interval meeting : intervals){
+		 if(!minHeap.isEmpty() && minHeap.peek() <= meeting.start){
+		    minHeap.poll();
+		  }
+	      minHeap.add(meeting.end);
+	  }
+        
+	return minHeap.size();
+     }
 
 }
 
