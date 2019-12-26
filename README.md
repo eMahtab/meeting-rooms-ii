@@ -73,3 +73,8 @@ The above implementation have runtime complexity of O(nlogn) and space complexit
 Runtime Complexity = O(nlogn)
 Space Complexity   = O(n)
 ```
+
+## References :
+1. https://www.callicoder.com/java-priority-queue/
+
+2. https://www.youtube.com/watch?v=RBlcUlUkDCU
