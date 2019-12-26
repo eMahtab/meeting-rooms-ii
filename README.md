@@ -66,3 +66,10 @@ public class App {
 }
 
 ```
+
+The above implementation have runtime complexity of O(nlogn) and space complexity of O(n)
+
+```
+Runtime Complexity = O(nlogn)
+Space Complexity   = O(n)
+```
