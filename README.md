@@ -35,7 +35,7 @@ We can use PriorityQueue to solve this problem, as we need to find the earliest 
 Another important thing to note is, we always add the end time of the next training session to the PriorityQueue, regardless of whether we can reuse a room or need a new room. At the end we return the `size` of the PriorityQueue, because that reflects the minimum number of rooms that we will require.
 
 ### :fire: Caution :fire:
-From the implementation point of view, its important that we don't `peek` from the PriorityQueue if the PriorityQueue is empty. So `isEmpty()` check is necessary otherwise we will get NullPointerException when the PriorityQueue is empty.
+From the implementation point of view, its important that we don't `peek` from the PriorityQueue if the PriorityQueue is empty. So `isEmpty()` check is necessary otherwise we will get **NullPointerException** when the PriorityQueue is empty.
 
 ### Implementation
 
