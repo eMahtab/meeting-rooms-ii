@@ -25,6 +25,11 @@ Say you are an event organizer and you are organizing a tech event, which involv
 
 As an organizer you got the timings for each session : `[2, 4] [1,7] [7, 8] [3, 5]`, e.g. 2 to 4 is Developers session, 1 to 7 is for DevOps folks and so on, now at **minimum** how many training rooms will you require to organize all the sessions? knowing that at anytime there can only be one training going on in one training room, but if a training room is free (means the next training session starts after the end of, one of the previous training session) then we can reuse the same training room.
 
+We can solve this problem by first sorting all the training sessions according to their start time. 
+So `[2, 4] [1,7] [7, 8] [3, 5]` becomes `[1, 7] [2, 4] [3, 5] [7, 8]`
+Next we iterate over the sorted training sessions, and we will check if the end time of the earliest ending training session is less than or equal to next training's start time, if thats the case, It means we can reuse the training room and don't need a new room.
+
+
 ### Implementation
 
 ```java
