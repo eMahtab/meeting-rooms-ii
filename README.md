@@ -23,7 +23,7 @@ Explanation: Only need one meeting room
 ## Approach :
 Say you are an event organizer and you are organizing a tech event, which involves 4 different training sessions on a single day (e.g. one for Developers, one for DevOps folks, one for Security folks and one for DBAs) and out of these 4 sessions some of them will be held in parallel which means different training sessions running at the same time. 
 
-As an organizer you got the timings for each session : `[2, 4] [1,7] [7, 8] [3, 5]`, e.g. 2 to 4 is Developers session, 1 to 7 is for DevOps folks and so on, now at **minimum** how many training rooms will you require to organize all the sessions.
+As an organizer you got the timings for each session : `[2, 4] [1,7] [7, 8] [3, 5]`, e.g. 2 to 4 is Developers session, 1 to 7 is for DevOps folks and so on, now at **minimum** how many training rooms will you require to organize all the sessions? knowing that at anytime there can only be one training going on in one training room, but if a training session is free (means the next training session starts after the end of the previous training session, then we can reuse the same training room. 
 
 ### Implementation
 
