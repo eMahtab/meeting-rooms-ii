@@ -25,14 +25,17 @@ Say you are an event organizer and you are organizing a tech event, which involv
 
 As an organizer you got the timings for each session : `[2, 4] [1,7] [7, 8] [3, 5]`, e.g. 2 to 4 is Developers session, 1 to 7 is for DevOps folks and so on, now at **minimum** how many training rooms will you require to organize all the sessions? knowing that at anytime there can only be one training going on in one training room, but if a training room is free (means the next training session starts after the end of, one of the previous training session) then we can reuse the same training room.
 
-We can solve this problem by first sorting all the training sessions according to their start time. 
-So `[2, 4] [1,7] [7, 8] [3, 5]` becomes `[1, 7] [2, 4] [3, 5] [7, 8]`
+**We can solve this problem by first sorting all the training sessions according to their start time. 
+So `[2, 4] [1,7] [7, 8] [3, 5]` becomes `[1, 7] [2, 4] [3, 5] [7, 8]`**
 Next we iterate over the sorted training sessions, and we will check if the end time of the earliest ending training session is less than or equal to next training's start time, if thats the case, It means we can reuse the training room and don't need a new room.
 
 We can use PriorityQueue to solve this problem, as we need to find the earliest ending training session.
 **We add end time of a training session to the PriorityQueue.** Note that we poll from the PriorityQueue, only when the head of the queue is less than or equal to the next training session's start time. This removes the older training session end time from the PriorityQueue.
 
 Another important thing to note is, we always add the end time of the next training session to the PriorityQueue, regardless of whether we can reuse a room or need a new room. At the end we return the `size` of the PriorityQueue, because that reflects the minimum number of rooms that we will require.
+
+### :fire: Caution :fire:
+From the implementation point of view, its important that we don't `peek` from the PriorityQueue if the PriorityQueue is empty. So `isEmpty()` check is necessary otherwise we will get NullPointerException when the PriorityQueue is empty.
 
 ### Implementation
 
