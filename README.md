@@ -31,7 +31,8 @@ Next we iterate over the sorted training sessions, and we will check if the end 
 
 We can use PriorityQueue to solve this problem, as we need to find the earliest ending training session.
 **We add end time of a training session to the PriorityQueue.** Note that we poll from the PriorityQueue, only when the head of the queue is less than or equal to the next training session's start time. This removes the older training session end time from the PriorityQueue.
-Another important thing to note is, we always add the end time of the next training session, regardless of whether we can reuse a room or need a new room. At the end we return the `size` of the PriorityQueue, because that reflects the minimum number of rooms that we will require.
+
+Another important thing to note is, we always add the end time of the next training session to the PriorityQueue, regardless of whether we can reuse a room or need a new room. At the end we return the `size` of the PriorityQueue, because that reflects the minimum number of rooms that we will require.
 
 ### Implementation
 
