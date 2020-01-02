@@ -1,5 +1,5 @@
 # Meeting Rooms II
-
+## https://www.lintcode.com/problem/meeting-rooms-ii
 Given an array of meeting time intervals consisting of start and end times [[s1,e1],[s2,e2],...] (si < ei), find the minimum number of conference rooms required.
 
 ```
@@ -19,6 +19,9 @@ Input: intervals = [(2,7)]
 Output: 1
 Explanation: Only need one meeting room
 ```
+
+## Approach :
+
 
 ### Implementation
 
