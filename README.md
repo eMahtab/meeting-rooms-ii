@@ -40,48 +40,23 @@ From the implementation point of view, its important that we don't `peek` from t
 ### Implementation
 
 ```java
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.PriorityQueue;
-
-class Interval {
-	int start, end;
-
-	Interval(int start, int end) {
-		this.start = start;
-		this.end = end;
-	}
-}
-
-public class App {
-     public static void main(String[] args) {
-	  List<Interval> meetings = new ArrayList<Interval>();
-	  meetings.add(new Interval(0, 30));
-	  meetings.add(new Interval(5, 10));
-	  meetings.add(new Interval(15, 20));
-	  System.out.println(minMeetingRooms(meetings));
-     }
-
-     public static int minMeetingRooms(List<Interval> intervals) {
-          if(intervals == null || intervals.size() == 0){
+class Solution {
+    public int minMeetingRooms(int[][] intervals) {
+        if(intervals == null || intervals.length == 0)
             return 0;
-          }
-	  Collections.sort(intervals, (a, b) -> a.start - b.start);
-	  PriorityQueue<Integer> minHeap = new PriorityQueue<Integer>();
-		
-	  for(Interval meeting : intervals){
-		 if(!minHeap.isEmpty() && minHeap.peek() <= meeting.start){
-		    minHeap.poll();
-		  }
-	      minHeap.add(meeting.end);
-	  }
         
-	return minHeap.size();
-     }
-
+        Arrays.sort(intervals, (m1, m2) -> m1[0] - m2[0]);
+        PriorityQueue<Integer> minHeap = new PriorityQueue<Integer>();
+        for(int[] interval : intervals) {
+            if(!minHeap.isEmpty() && minHeap.peek() <= interval[0]) {
+                minHeap.poll();
+            }
+            minHeap.add(interval[1]);
+        }
+        
+        return minHeap.size();
+    }
 }
-
 ```
 
 The above implementation have runtime complexity of O(nlogn) and space complexity of O(n)
