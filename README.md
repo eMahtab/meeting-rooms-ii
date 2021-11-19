@@ -39,6 +39,31 @@ Another important thing to note is, we always add the end time of the next train
 ### :fire: Caution :fire:
 From the implementation point of view, its important that we don't `peek` from the PriorityQueue if the PriorityQueue is empty. So `isEmpty()` check is necessary otherwise we will get **NullPointerException** when the PriorityQueue is empty.
 
+## Incorrect Implementation : Without Min Heap (priority queue)
+```java
+class Solution {
+    public int minMeetingRooms(int[][] intervals) {
+        if(intervals == null || intervals.length == 0)
+            return 0;
+        int rooms = 1;
+        Arrays.sort(intervals, (m1, m2) -> m1[0] - m2[0]);
+        for(int i = 0; i < intervals.length - 1; i++) {
+            if(intervals[i+1][0] < intervals[i][1])
+                rooms++;
+        }
+        return rooms;
+    }
+}
+```
+
+Above implementation will give wrong answer for below input.
+
+`
+Input:    [[9,10],[4,9],[4,17]]
+Output:   3
+Expected: 2
+`
+
 ### Implementation
 
 ```java
