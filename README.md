@@ -64,7 +64,7 @@ Output:   3
 Expected: 2
 `
 
-### Implementation
+## Correct Implementation
 
 ```java
 class Solution {
